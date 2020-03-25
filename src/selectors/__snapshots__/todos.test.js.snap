@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useWithTodos 1`] = `
+Array [
+  Object {
+    "completed": true,
+    "title": "Check the plants",
+    "userId": 2,
+  },
+  Object {
+    "completed": false,
+    "title": "Go to the mall",
+    "userId": 4,
+  },
+  Object {
+    "completed": false,
+    "title": "Write a song",
+    "userId": 1,
+  },
+]
+`;

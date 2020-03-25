@@ -1,8 +1,10 @@
 import React, {useState, memo} from 'react';
-import {createContext} from 'use-context-selector';
 import {render, fireEvent} from '@testing-library/react';
 import useContextSelector from './useContextSelector';
-import {useContextSelector as useContextSelectorExternal} from 'use-context-selector';
+import {
+  useContextSelector as useContextSelectorExternal,
+  createContext
+} from 'use-context-selector';
 
 const Context = createContext();
 

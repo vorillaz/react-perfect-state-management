@@ -1,8 +1,8 @@
-import { useRef, useCallback } from "react";
-import identity from "lodash/identity";
-import isEqual from "lodash/isEqual";
-import { createContext } from "use-context-selector";
-import { useContextSelector as UseCtxSelector } from "use-context-selector";
+import {useRef, useCallback} from 'react';
+import identity from 'lodash/identity';
+import isEqual from 'lodash/isEqual';
+import {createContext} from 'use-context-selector';
+import {useContextSelector as UseCtxSelector} from 'use-context-selector';
 
 const useParse = (Context, select = identity) => {
   /** eslint-ignore */
@@ -24,5 +24,5 @@ export const useMultipleCtxSelector = ([...Contexts], selector) => {
 };
 
 export default (Context, select = identity) => {
-  return UseCtxSelector(Context, select);
+  return useParse(Context, select);
 };

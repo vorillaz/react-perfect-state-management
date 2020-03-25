@@ -43,9 +43,9 @@ it('rerenders upon change', () => {
   expect(onRender).toBeCalledTimes(3);
 });
 
-it("doesn't rerender upon change", () => {
+it("doesn't rerender upon change", async () => {
   const onRender = jest.fn();
-  const {getByTestId} = render(
+  const {getByTestId} = await render(
     <Provider onRender={onRender} useSelector={useContextSelector} />
   );
   expect(onRender).toBeCalledTimes(1);

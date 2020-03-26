@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import getInitalState from "./initialState";
-import TodosContext from "./context";
+import React, {useState, useCallback} from 'react';
+import getInitalState from './initialState';
+import TodosContext from './context';
 
-const StateProvider = ({ children }) => {
+const StateProvider = ({children}) => {
   const [state, updateState] = useState(getInitalState());
+  const update = useCallback(updateState, []);
   return (
-    <TodosContext.Provider value={[state, updateState]}>
+    <TodosContext.Provider value={[state, update]}>
       {children}
     </TodosContext.Provider>
   );

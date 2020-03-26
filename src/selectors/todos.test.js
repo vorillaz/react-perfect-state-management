@@ -1,3 +1,4 @@
+import React, {useState, useCallback} from 'react';
 import {renderHook} from '@testing-library/react-hooks';
 import {createContext} from 'use-context-selector';
 import {useWithTodos, useWithAddTodos, useWithSetCompleteTodo} from './todos';
@@ -20,16 +21,28 @@ const initialstate = [
   }
 ];
 
-it('useWithTodos', () => {
+it('useWithTodos renders', () => {
   const Ctx = createContext([initialstate]);
   const {result} = renderHook(() => useWithTodos(Ctx));
   expect(result.current).toMatchSnapshot();
 });
 
-xit('useWithAddTodos', () => {
-  // Todo
+it('useWithAddTodos renders', () => {
+  const update = jest.fn();
+  const Ctx = createContext([initialstate, update]);
+  renderHook(() => {
+    const u = useWithAddTodos(Ctx);
+    u('new todo');
+  });
+  expect(update).toHaveBeenCalled();
 });
 
-xit('useWithSetCompleteTodo', () => {
-  // Todo
+it('useWithSetCompleteTodo renders', () => {
+  const update = jest.fn();
+  const Ctx = createContext([initialstate, update]);
+  renderHook(() => {
+    const u = useWithSetCompleteTodo(Ctx);
+    u('new todo');
+  });
+  expect(update).toHaveBeenCalled();
 });
